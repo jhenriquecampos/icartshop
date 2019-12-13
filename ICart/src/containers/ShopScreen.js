@@ -9,16 +9,18 @@ import {
 import ShopCell from '../components/tablecells/ShopCell'
 import { product, producttypes } from '../Data'
 // import { connect } from 'react-redux'
-import ShoppingCartIcon from './../containers/ShoppingCartIcon'
+import ShoppingCartIcon from './../components/ShoppingCartIcon'
+// import Menu from './ClientSideMenu'
 
 class ShopScreen extends Component {
 
-    static navigationOptions = {
-        headerTitle: 'Shop',
-        headerRight: (
-            <ShoppingCartIcon/>
-        ),
-      };
+    // static navigationOptions = {
+    //     headerTitle: 'Shop',
+    //     headerRight: (
+    //         <ShoppingCartIcon/>
+    //     ),
+    //   };
+
     render() {
         return (
             <ScrollView>

@@ -10,19 +10,19 @@ import {
 } from "react-native";
 import { connect } from 'react-redux'
 import CartCell from '../components/tablecells/CartCell'
-import ShopButton from '../components/ShopButton'
+// import ShopButton from '../components/ShopButton'
 // import { shopFromCart } from '../store/actions/shopFromCart'
 
 class CartScreen extends Component {
 
-    static navigationOptions = {
-        headerTitle: 'Carrinho',
-        headerRight: (
-            <View style={{ padding: 5 }}>
-                <ShopButton />
-            </View>
-        ),
-    };
+    // static navigationOptions = {
+    //     headerTitle: 'Carrinho',
+    //     headerRight: (
+    //         <View style={{ padding: 5 }}>
+    //             <ShopButton />
+    //         </View>
+    //     ),
+    // };
 
     render() {
         // console.log(this.props.cartItems)

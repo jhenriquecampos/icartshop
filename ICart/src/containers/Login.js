@@ -30,7 +30,7 @@ class Login extends Component {
         if (this.validateEmail()) {
             this.props.onLogin({ ...this.state })
             this.cleanState()
-            this.props.navigation.navigate('Home')
+            this.props.navigation.navigate('ClientSideMenu')
         } else {
             let msg = "Usuário ou senha incorretos!";
             if (Platform.OS === 'android') {
