@@ -12,9 +12,9 @@ class ShoppingCart extends Component {
 }
 
 const AppSwitchNavigator = createSwitchNavigator({
-    // Login: {
-    //     screen: Login
-    // },
+    Login: {
+        screen: Login
+    },
     ClientSideMenu: {
         screen: ClientSideMenu
     }
