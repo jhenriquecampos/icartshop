@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 import Login from './containers/Login'
 import ClientSideMenu from './containers/ClientSideMenu'
+import SignUp from './containers/SignUp'
+import AddProduct from './containers/AddProduct'
 
 const AppSwitchNavigator = createSwitchNavigator({
     Login: {
@@ -9,6 +11,12 @@ const AppSwitchNavigator = createSwitchNavigator({
     },
     ClientSideMenu: {
         screen: ClientSideMenu
+    },
+    SignUp: {
+        screen: SignUp
+    },
+    AddProduct: {
+        screen: AddProduct
     }
 })
 

@@ -37,6 +37,11 @@ class Login extends Component {
         }
     }
 
+    signUp = () => {
+        this.cleanState()
+        this.props.navigation.navigate('SignUp')
+    }
+
     validateEmail = () => {
         let flag = false
         user.forEach(element => {
@@ -77,6 +82,11 @@ class Login extends Component {
                     style = {styles.button}
                     onPress = {this.login}>
                     <Text style = {styles.textButton}>Entrar</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style = {styles.button}
+                    onPress = {this.signUp}>
+                    <Text style = {styles.textButton}>Criar Uma Nova Conta</Text>
                 </TouchableOpacity>
             </View>
         )
