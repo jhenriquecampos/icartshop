@@ -1,15 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 import Login from './containers/Login'
 import ClientSideMenu from './containers/ClientSideMenu'
-
-class ShoppingCart extends Component {
-    render() {
-        return (
-            <AppSwitchNavigator />
-        );
-    }
-}
 
 const AppSwitchNavigator = createSwitchNavigator({
     Login: {
@@ -20,6 +12,6 @@ const AppSwitchNavigator = createSwitchNavigator({
     }
 })
 
-const AppSwitchMenu = createAppContainer(AppSwitchNavigator);
+const AppSwitchMenu = createAppContainer(AppSwitchNavigator)
 
-export default AppSwitchMenu;
+export default AppSwitchMenu

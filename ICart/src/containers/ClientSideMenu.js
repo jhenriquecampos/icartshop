@@ -1,6 +1,7 @@
 import React from 'react'
 import { createDrawerNavigator } from 'react-navigation'
 import { ShopStackMenu, CartStackMenu } from './ClientStackMenus'
+import ClientSideMenuContent from './../components/ClientSideMenuContent'
 
 export default createDrawerNavigator({
     ShopStackMenu: {
@@ -23,5 +24,6 @@ export default createDrawerNavigator({
         navigationOptions: { title: 'Carrinho' },
     }
 }, { 
-    drawerWidth: 260
+    drawerWidth: 260,
+    contentComponent: ClientSideMenuContent
 })

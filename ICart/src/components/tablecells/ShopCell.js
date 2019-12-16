@@ -71,7 +71,7 @@ class ShopScreen extends Component {
                     </View>
                     <Button 
                         onPress={this.addItemToCart}
-                        title = 'Add' />
+                        title = 'Adicionar' />
                 </View>
             </View>
         )

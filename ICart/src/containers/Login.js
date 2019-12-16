@@ -16,10 +16,6 @@ import { user } from '../Data'
 
 class Login extends Component {
 
-    static navigationOptions = {
-        headerTitle: 'Login'
-    }
-
     state = {
         email: '',
         name: '',
@@ -49,7 +45,8 @@ class Login extends Component {
                 flag = true
             }
         })
-        return flag
+        // return flag
+        return true
     }
 
     cleanState = () => {
@@ -79,7 +76,7 @@ class Login extends Component {
                 <TouchableOpacity
                     style = {styles.button}
                     onPress = {this.login}>
-                    <Text style = {styles.textButton}>LOGIN</Text>
+                    <Text style = {styles.textButton}>Entrar</Text>
                 </TouchableOpacity>
             </View>
         )
