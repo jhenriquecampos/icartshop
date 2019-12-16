@@ -7,39 +7,23 @@ import {
     FlatList
 } from "react-native";
 import ShopCell from '../components/tablecells/ShopCell'
-import { product, producttypes } from '../Data'
-// import { connect } from 'react-redux'
+import { product } from '../Data'
 import ShoppingCartIcon from './../components/ShoppingCartIcon'
-// import Menu from './ClientSideMenu'
 
-class ShopScreen extends Component {
-
-    // static navigationOptions = {
-    //     headerTitle: 'Shop',
-    //     headerRight: (
-    //         <ShoppingCartIcon/>
-    //     ),
-    //   };
+export default class ShopScreen extends Component {
 
     render() {
         return (
             <ScrollView>
                 <FlatList
-                    data={product}
+                    data={product.filter((prod) => {return prod.type != this.props.prodsType})}
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item }) => <ShopCell {...item} />} />
             </ScrollView>
         );
     }
+
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         // addItemToCart: (product) => dispatch({ type: 'ADD_TO_CART', payload: product })
-//     }
-// }
-
-export default ShopScreen;
 
 const styles = StyleSheet.create({
     container: {

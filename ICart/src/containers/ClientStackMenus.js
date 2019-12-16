@@ -13,11 +13,12 @@ import ShopButton from '../components/ShopButton'
 export const ShopStackMenu = createStackNavigator (
     {
         ShopScreen: {
-            screen: ShopScreen
+            screen: ({ navigation }) => <ShopScreen prodsType = {navigation.dangerouslyGetParent().state.params.type}/>
         }
     }, {
         defaultNavigationOptions: ({ navigation }) => {
             return {
+                headerTitle: navigation.dangerouslyGetParent().state.params.title,
                 headerLeft: (
                     <Icon style = {{ paddingLeft: 20 }}
                         onPress = {() => navigation.openDrawer()}

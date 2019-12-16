@@ -10,22 +10,10 @@ import {
 } from "react-native";
 import { connect } from 'react-redux'
 import CartCell from '../components/tablecells/CartCell'
-// import ShopButton from '../components/ShopButton'
-// import { shopFromCart } from '../store/actions/shopFromCart'
 
 class CartScreen extends Component {
 
-    // static navigationOptions = {
-    //     headerTitle: 'Carrinho',
-    //     headerRight: (
-    //         <View style={{ padding: 5 }}>
-    //             <ShopButton />
-    //         </View>
-    //     ),
-    // };
-
     render() {
-        // console.log(this.props.cartItems)
 
         return (
             <ScrollView>
@@ -42,6 +30,7 @@ class CartScreen extends Component {
             </ScrollView>
         );
     }
+
 }
 
 const mapStateToProps = ({ cartItems }) => {
@@ -49,12 +38,6 @@ const mapStateToProps = ({ cartItems }) => {
         cartItems: cartItems
     }
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onShopFromCart: () => dispatch(shopFromCart())
-//     }
-// }
 
 export default connect(mapStateToProps, null)(CartScreen);
 
