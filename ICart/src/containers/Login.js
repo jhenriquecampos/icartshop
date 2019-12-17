@@ -19,14 +19,35 @@ class Login extends Component {
     state = {
         email: '',
         name: '',
-        password: ''
+        password: '',
+        type: null
+    }
+
+    signUp = () => {
+        this.cleanState()
+        this.props.navigation.navigate('SignUp')
     }
 
     login = () => {
-        if (this.validateEmail()) {
-            this.props.onLogin({ ...this.state })
-            this.cleanState()
-            this.props.navigation.navigate('ClientSideMenu')
+        let flag = false
+        let name
+        let type
+        user.forEach(element => {
+            if (element.email == this.state.email && element.password == this.state.password) {
+                name = element.name
+                type = element.user_type_cod
+                flag = true
+            }
+        })
+        if (flag) {
+            this.setState({name: name, type: type}, () => {
+                this.props.onLogin({ ...this.state })
+                if(this.state.type == 2) {
+                    this.props.navigation.navigate('ClientSideMenu')
+                } else {
+                    this.props.navigation.navigate('AdminSideMenu')
+                }
+            })
         } else {
             let msg = 'E-mail ou senha incorretos!';
             if (Platform.OS === 'android') {
@@ -35,23 +56,6 @@ class Login extends Component {
                 Alert.alert('Login', msg);
             }
         }
-    }
-
-    signUp = () => {
-        this.cleanState()
-        this.props.navigation.navigate('SignUp')
-    }
-
-    validateEmail = () => {
-        // return true
-        let flag = false
-        user.forEach(element => {
-            if (element.email == this.state.email && element.password == this.state.password) {
-                this.setState({ name: element.name })
-                flag = true
-            }
-        })
-        return flag
     }
 
     cleanState = () => {

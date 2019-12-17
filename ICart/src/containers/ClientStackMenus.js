@@ -42,6 +42,7 @@ export const CartStackMenu = createStackNavigator (
     }, {
         defaultNavigationOptions: ({ navigation }) => {
             return {
+                headerTitle: 'Carrinho',
                 headerLeft: (
                     <Icon style = {{ paddingLeft: 20 }}
                         onPress = {() => navigation.openDrawer()}

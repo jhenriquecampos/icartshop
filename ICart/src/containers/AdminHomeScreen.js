@@ -6,26 +6,18 @@ import {
     StyleSheet,
     FlatList
 } from "react-native";
-import ShopCell from '../components/tablecells/ShopCell'
 import { product } from '../Data'
+import AdminProdsCell from '../components/tablecells/AdminProdsCell'
 
-export default class ShopScreen extends Component {
-
-    filterProductsByType = (products) => {
-        if (this.props.prodsType == 0) {
-            return products
-        } else {
-            return products.filter((prod) => {return prod.type == this.props.prodsType})
-        }
-    }
+export default class AdminHomeScreen extends Component {
 
     render() {
         return (
             <ScrollView>
                 <FlatList
-                    data={this.filterProductsByType(product)}
+                    data={product}
                     keyExtractor={(item, index) => index.toString()}
-                    renderItem={({ item }) => <ShopCell {...item} />} />
+                    renderItem={({ item }) => <AdminProdsCell {...item} />} />
             </ScrollView>
         );
     }

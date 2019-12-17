@@ -11,10 +11,10 @@ export const addProduct = product => {
     }
 }
 
-// export const removeProduct = id => {
-//     return dispatch => {
-//         axiosConfig.post('/users.json', { ...user })
-//             .catch(err => console.log(err))
-//             .then(res => console.log(res.data))
-//     }
-// }
+export const removeProduct = id => {
+    return dispatch => {
+        axiosConfig.post('/users.json', { ...user })
+            .catch(err => console.log(err))
+            .then(res => console.log(res.data))
+    }
+}

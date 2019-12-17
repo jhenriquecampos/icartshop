@@ -25,7 +25,6 @@ export default class SignUp extends React.Component {
     return (
         
       <View style={styles.container}>
-          <Text style = {styles.textButton}>Adicionar Produto</Text>
           <TextInput
               onChangeText={(name) => this.setState({ name: name })}
               value={this.state.name}
