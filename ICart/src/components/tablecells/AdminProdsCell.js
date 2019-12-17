@@ -27,11 +27,6 @@ class ShopScreen extends Component {
         return (
             <View style = {styles.cell}>
                 <Product prod={this.state.product} />
-                <View style = {styles.shop}>
-                    <Button 
-                        onPress={this.removeProduct}
-                        title = 'Remover' />
-                </View>
             </View>
         )
     }

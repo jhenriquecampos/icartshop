@@ -26,7 +26,8 @@ class SignUp extends React.Component {
     this.setState({ type: 'Cliente' })
     if (this.validateFields()) {
       this.props.onSignUp({ ...this.state })
-      alert('Usuário do tipo '+this.state.type+' adicionado com sucesso!')
+      let userType = this.state.type == 1 ? 'administrador' : 'cliente'
+      alert('Usuário do tipo '+userType+' adicionado com sucesso!')
       this.props.navigation.navigate('Login')
     }
   }
@@ -81,6 +82,13 @@ class SignUp extends React.Component {
           secureTextEntry={true}
           autoCapitalize="none"
           onChangeText={val => this.onChangeText('repeatPassword', val)}
+        />
+        <TextInput
+          style = {styles.input}
+          placeholder='Tipo de usuário (1 ou 2)'
+          secureTextEntry={true}
+          autoCapitalize="none"
+          onChangeText={val => this.onChangeText('type', val)}
         />
         <TouchableOpacity
             style = {styles.button}

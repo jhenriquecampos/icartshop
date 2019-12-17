@@ -12,7 +12,8 @@ import {
 import { connect } from 'react-redux'
 import { login } from '../store/actions/user'
 import styles from '../styles/index'
-import { user } from '../Data'
+import { getUsers } from '../store/actions/user'
+// import { user } from '../Data'
 
 class Login extends Component {
 
@@ -20,7 +21,7 @@ class Login extends Component {
         email: '',
         name: '',
         password: '',
-        type: null
+        type: '',
     }
 
     signUp = () => {
@@ -28,14 +29,19 @@ class Login extends Component {
         this.props.navigation.navigate('SignUp')
     }
 
+    componentDidMount = () => {
+        this.props.onGetUsers()
+    }
+
     login = () => {
         let flag = false
         let name
         let type
-        user.forEach(element => {
+        console.log(this.props.users)
+        this.props.users.forEach(element => {
             if (element.email == this.state.email && element.password == this.state.password) {
                 name = element.name
-                type = element.user_type_cod
+                type = element.type
                 flag = true
             }
         })
@@ -63,7 +69,7 @@ class Login extends Component {
             email: '',
             name: '',
             password: '',
-            type: null
+            type: '',
         })
     }
 
@@ -98,11 +104,18 @@ class Login extends Component {
     }
 }
 
+const mapStateToProps = ({ users }) => {
+    return {
+        users: users.users
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
-        onLogin: user => dispatch(login(user))
+        onLogin: user => dispatch(login(user)),
+        onGetUsers: () => dispatch(getUsers())
     }
 }
 
 // export default Login
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
