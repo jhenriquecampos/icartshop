@@ -28,16 +28,17 @@ class Login extends Component {
             this.cleanState()
             this.props.navigation.navigate('ClientSideMenu')
         } else {
-            let msg = "Usuário ou senha incorretos!";
+            let msg = 'E-mail ou senha incorretos!';
             if (Platform.OS === 'android') {
                 ToastAndroid.show(msg, ToastAndroid.LONG);
             } else {
-                Alert.alert("Login", msg);
+                Alert.alert('Login', msg);
             }
         }
     }
 
     validateEmail = () => {
+        // return true
         let flag = false
         user.forEach(element => {
             if (element.email == this.state.email && element.password == this.state.password) {
@@ -45,8 +46,7 @@ class Login extends Component {
                 flag = true
             }
         })
-        // return flag
-        return true
+        return flag
     }
 
     cleanState = () => {
@@ -77,6 +77,11 @@ class Login extends Component {
                     style = {styles.button}
                     onPress = {this.login}>
                     <Text style = {styles.textButton}>Entrar</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress = {() => this.props.navigation.navigate('SignUp')}
+                    style = {{ marginTop: 20 }}>
+                    <Text style = {{ color: '#fff', fontWeight: 'bold' }}>Criar conta</Text>
                 </TouchableOpacity>
             </View>
         )

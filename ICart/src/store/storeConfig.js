@@ -1,6 +1,12 @@
-import { createStore, combineReducers } from 'redux'
-import cartItemsReducer from './reducers/cartItems'
+import { 
+    createStore,
+    combineReducers,
+    compose,
+    applyMiddleware
+} from 'redux'
+import thunk from 'redux-thunk'
 import userReducer from './reducers/user'
+import cartItemsReducer from './reducers/cartItems'
 
 const reducers = combineReducers({
     cartItems: cartItemsReducer,
@@ -8,7 +14,7 @@ const reducers = combineReducers({
 })
 
 const storeConfig = () => {
-    return createStore(reducers)
+    return createStore(reducers, compose(applyMiddleware(thunk)))
 }
 
 export default storeConfig

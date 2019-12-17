@@ -18,6 +18,6 @@ export const user = [
 ]
 
 export const user_type = [
-    { id: 1, type: 'Admin'},
-    { id: 2, type: 'Client'}
+    { id: 1, type: 'Administrador'},
+    { id: 2, type: 'Cliente'}
 ]

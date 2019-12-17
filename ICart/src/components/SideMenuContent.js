@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 
 import { logout } from "./../store/actions/user"
 
-class ClientSideMenuContent extends Component {
+class SideMenuContent extends Component {
 
     logout = () => {
         this.props.onLogout
@@ -34,4 +34,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ClientSideMenuContent)
+export default connect(null, mapDispatchToProps)(SideMenuContent)
