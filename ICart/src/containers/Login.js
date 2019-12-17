@@ -37,6 +37,11 @@ class Login extends Component {
         }
     }
 
+    signUp = () => {
+        this.cleanState()
+        this.props.navigation.navigate('SignUp')
+    }
+
     validateEmail = () => {
         // return true
         let flag = false
