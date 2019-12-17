@@ -6,16 +6,23 @@ import {
     StyleSheet,
     FlatList
 } from "react-native";
-import { product } from '../Data'
+// import { product } from '../Data'
+import { connect } from 'react-redux'
+import { fetchProducts } from '../store/actions/product'
 import AdminProdsCell from '../components/tablecells/AdminProdsCell'
 
-export default class AdminHomeScreen extends Component {
+
+class AdminHomeScreen extends Component {
+
+    componentDidMount = () => {
+        this.props.onFetchProducts()
+    }
 
     render() {
         return (
             <ScrollView>
                 <FlatList
-                    data={product}
+                    data={this.props.products}
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item }) => <AdminProdsCell {...item} />} />
             </ScrollView>
@@ -23,6 +30,20 @@ export default class AdminHomeScreen extends Component {
     }
 
 }
+
+const mapStateToProps = ({ products }) => {
+    return {
+        products: products.products
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchProducts: () => dispatch(fetchProducts())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminHomeScreen)
 
 const styles = StyleSheet.create({
     container: {

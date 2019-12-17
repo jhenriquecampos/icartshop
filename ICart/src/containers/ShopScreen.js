@@ -7,9 +7,10 @@ import {
     FlatList
 } from "react-native";
 import ShopCell from '../components/tablecells/ShopCell'
-import { product } from '../Data'
+import { connect } from 'react-redux'
+import { fetchProducts } from '../store/actions/product'
 
-export default class ShopScreen extends Component {
+class ShopScreen extends Component {
 
     filterProductsByType = (products) => {
         if (this.props.prodsType == 0) {
@@ -19,11 +20,15 @@ export default class ShopScreen extends Component {
         }
     }
 
+    componentDidMount = () => {
+        this.props.onFetchProducts()
+    }
+
     render() {
         return (
             <ScrollView>
                 <FlatList
-                    data={this.filterProductsByType(product)}
+                    data={this.filterProductsByType(this.props.products)}
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item }) => <ShopCell {...item} />} />
             </ScrollView>
@@ -31,6 +36,20 @@ export default class ShopScreen extends Component {
     }
 
 }
+
+const mapStateToProps = ({ products }) => {
+    return {
+        products: products.products
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchProducts: () => dispatch(fetchProducts())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopScreen)
 
 const styles = StyleSheet.create({
     container: {

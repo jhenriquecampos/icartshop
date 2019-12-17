@@ -62,7 +62,8 @@ class Login extends Component {
         this.setState({
             email: '',
             name: '',
-            password: ''
+            password: '',
+            type: null
         })
     }
 

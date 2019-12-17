@@ -7,10 +7,12 @@ import {
 import thunk from 'redux-thunk'
 import userReducer from './reducers/user'
 import cartItemsReducer from './reducers/cartItems'
+import productsReducer from './reducers/product'
 
 const reducers = combineReducers({
     cartItems: cartItemsReducer,
-    user: userReducer
+    user: userReducer,
+    products: productsReducer,
 })
 
 const storeConfig = () => {
